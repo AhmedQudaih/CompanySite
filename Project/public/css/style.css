@@ -1,0 +1,459 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+
+}
+
+::-webkit-scrollbar {
+  
+  display: none;
+}
+
+.nav-link {
+  font-size: 1.2em;
+  margin-right: 20px;
+
+}
+
+.topnav-center {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wow {
+  animation-duration: 2s;
+  offset: 10;
+}
+
+.topnav a:hover {
+  background-color: rgb(172, 187, 255);
+}
+
+.topnav a.active {
+  color: rgb(146, 141, 141);
+}
+
+.curved-div {
+  background: #97d6fffb;
+  color: #FFF;
+  text-align: center;
+}
+
+.curved-div svg {
+  display: block;
+}
+
+.CurvedAboutSection-div {
+  background: #f3f4f5;
+  color: #FFF;
+  text-align: center;
+}
+
+.CurvedMore-div {
+  background: #dff3fffb;
+  color: #FFF;
+  text-align: center;
+}
+
+div.card {
+  width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  max-height: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.circle {
+  margin: 55px;
+  display: inline-block;
+  padding: 16px;
+  text-align: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid #1d2087;
+}
+
+.circle::before,
+.circle::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+
+.circle,
+.circle::before,
+.circle::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.circle {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  border: 2px solid #5c5eae;
+  color: #5c5eae;
+  line-height: 50px;
+  overflow: hidden;
+}
+
+.circle:hover {
+  color: #fff;
+}
+
+.circle::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+}
+
+.circle:hover::after {
+  background: #5c5eae;
+  border-radius: 50%;
+  -webkit-transform: scale(.9);
+  transform: scale(.9);
+}
+
+.circle1 {
+  opacity: 0.5;
+}
+
+.circle1 img {
+  height: 100%;
+  width: 100%;
+}
+
+.circle2 {
+  width: 300px;
+  height: 300px;
+  margin: 0px;
+
+}
+
+.circle a {
+  text-decoration: none;
+  color: #1d2087;
+}
+
+.circle h2 {
+  font-size: 60px;
+}
+
+.circle h2 small {
+  color: #1d2087;
+}
+
+.circle p {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.map-container-9
+  {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-container-9 iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.navlogo {
+  height: 30px;
+}
+
+.rowpic {
+  height: 70px;
+}
+
+@media only screen and (max-width: 767px) {
+
+  .dropdown-content {
+    min-width: auto;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 12px;
+
+  }
+
+  div.card {
+    width: auto;
+    height: fit-content;
+
+  }
+
+  .CurvedAboutSection-div h1 {
+    margin-bottom: 50px;
+  }
+
+  .CurvedMore-div {
+    margin-top: 55px
+  }
+
+  .circle {
+    margin: 2px;
+    padding: 7px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle h2 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 30px;
+  }
+
+  .circle p {
+    font-size: 8px;
+    margin-top: -8px;
+  }
+
+  .circle2 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .SocialCircle img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: unset;
+  }
+}
+
+
+@media only screen and (min-width: 1900px) {
+  h1 {
+    font-size: 90px;
+  }
+
+  .flip-card h2 {
+    font-size: 65px;
+  }
+
+  p {
+    font-size: 30px;
+
+  }
+
+  div.card {
+    width: auto;
+    height: fit-content;
+
+  }
+
+  .nav-link {
+    font-size: 2.2em;
+    margin-right: 20px;
+
+  }
+
+  .navlogo {
+    height: 50px;
+  }
+
+  .rowpic {
+    height: 120px;
+  }
+
+
+
+  .card-title {
+    font-size: 50px;
+  }
+
+  .card-body a {
+    font-size: 1em;
+  }
+
+  .circle {
+    margin: 200px;
+    width: 300px;
+    height: 300px;
+
+  }
+
+  .circle h2 {
+    margin-top: 50px;
+    font-size: 100px;
+  }
+
+  .circle p {
+    font-size: 30px;
+  }
+
+  .circle2 {
+    width: 300px;
+    height: 300px;
+    margin: 0px;
+
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item>div {
+    display: none;
+  }
+
+  .carousel-inner .carousel-item>div:first-child {
+    display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.333%);
+  }
+
+  .carousel-inner .carousel-item-left.active,
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.333%);
+  }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+  transform: translateX(0);
+}
+
+/*---------------------------------------------------------*/
+
+/**
+* The CSS shown here will not be introduced in the Quickstart guide, but shows
+* how you can use CSS to style your Element's container.
+*/
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
