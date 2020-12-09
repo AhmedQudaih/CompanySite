@@ -19,7 +19,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  
+
   <script src="/js/wow.min.js"></script>
   <script>
     new WOW().init();  
@@ -74,8 +74,13 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="modal" data-target="#AddCategoryModal">Add Category</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/AdminList">AdminList</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="/AdminList">AdminList </a>
+            <div class="dropdown-content">
+              <a class="dropdown-item" href="/AdminList#AllProducts">Products</a>
+              <a class="dropdown-item" href="/AdminList#AllUsers">Users</a>
+              <a class="dropdown-item" href="/AdminList#AllOrders">Orders</a>
+            </div>
           </li>
           @endif
           @endif
@@ -105,6 +110,7 @@
                 @csrf
               </form>
               <a class="dropdown-item" href="/AdminList/EditUser/{{ Auth::user()->id }}">Update User</a>
+              <a class="dropdown-item" href="/Order/MyOrder">My Orders</a>
             </div>
           </li>
       </div>
@@ -343,12 +349,16 @@ function ADDChange($id, $fun) {
   case "admin":
     var route = '{{route('MakeAdmin')}}';
     break;
+    case "OrderDone":
+    var route = '{{route('OrderDone')}}';
+    break;
   case "addcart":
     var route = '{{route('AddCart')}}';
     break;
   case "SubOrder":
     var route = '{{route('SubOrder')}}';
   break;
+
 }
   $.ajax({
       url: route,

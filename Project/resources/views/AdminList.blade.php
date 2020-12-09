@@ -1,7 +1,7 @@
 @extends('layouts.bars')
 @section('content')
 <section class="container table-responsive  col-12" id="AdminTable">
-  <h1 style=" text-align: center; font-family:verdana; background-color: rgb(1, 114, 243)">Products</h1>
+  <h1 id="AllProducts"style=" text-align: center; font-family:verdana; background-color: rgb(1, 114, 243)">Products</h1>
   <table class="table  wow animate__zoomIn table-hover" >
     <thead>
       <tr>
@@ -50,7 +50,7 @@
     </tbody>
   </table>
 
-  <h1 style=" text-align: center; font-family:verdana; background-color: rgb(1, 114, 243)"> Users</h1>
+  <h1 id="AllUsers" style=" text-align: center; font-family:verdana; background-color: rgb(1, 114, 243)"> Users</h1>
 
   <table class="table wow animate__zoomIn table-hover">
     <thead>
@@ -79,7 +79,7 @@
       @endforeach
     </tbody>
   </table>
-  <h1 style=" text-align: center; font-family:verdana; background-color: rgb(1, 114, 243)"> Orders</h1>
+  <h1 id="AllOrders" style=" text-align: center; font-family:verdana; background-color: rgb(1, 114, 243)"> Orders</h1>
 
   <table class="table wow animate__zoomIn table-hover">
     <thead>
@@ -93,11 +93,12 @@
         <th scope="col">Zip</th>
         <th scope="col">Totla</th>
         <th scope="col">Payment Status</th>
+        <th scope="col">Done</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($Order as $ord)
-      <tr>
+      <tr style="{{$ord->Done == 1 ? 'background-color:  rgb(134, 240, 187) ': ''}}">
         <td>{{$ord->id}}</td>
         <td>{{$User->where('id', $ord->User_id)->first()->name}}</td>
         <td>{{$ord->PhoneNumber}}</td>
@@ -113,6 +114,11 @@
           <p>Cash</p>
           @endif
         </td>
+        <td>
+          <input class="form-check-input" onclick="ADDChange('{{$ord->id}}','OrderDone')" type="checkbox" name="OrderDone"
+            id="OrderDone" value="1" {{$ord->Done == 1 ? 'checked ' : ''}} >
+        </td>
+
       </tr>
       <tr class="active">
         <th scope="col">Products</th>

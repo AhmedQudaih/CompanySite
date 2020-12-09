@@ -26,6 +26,9 @@ Route::get('/Order', 'OrderController@Order');
 Route::post('/Order', 'OrderController@MakeOrder')->name('MakeOrder');
 Route::get('/Order/UpdateOrder', 'OrderController@editOrder')->name('EditOrder');
 Route::post('/Order/SubOrder', 'OrderController@SubOrder')->name('SubOrder');
+Route::post('/Order/OrderDone', 'OrderController@OrderDone')->name('OrderDone');
+Route::get('/Order/MyOrder', 'OrderController@MyOrder')->name('MyOrder');
+
 
 
 

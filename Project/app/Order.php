@@ -12,5 +12,9 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function Items()
+    {
+        return $this->hasMany('App\Items');
+    }
 
 }

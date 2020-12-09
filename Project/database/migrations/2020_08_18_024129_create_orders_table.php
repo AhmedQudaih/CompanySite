@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->integer('Zip');
             $table->integer('Total');
             $table->boolean('PayStatus')->default(0);
+            $table->boolean('Done')->default(0);
         });
     }
 

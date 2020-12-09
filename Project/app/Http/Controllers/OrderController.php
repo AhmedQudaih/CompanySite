@@ -84,6 +84,50 @@ class OrderController extends Controller
         return view('Order');
     }
 
+    public function MyOrder(){
+      
+        $i=0;
+       $Order = Order::where('User_id' , auth()->user()->id)->get();
+        foreach ($Order as $order){
+            $Items[$i] = Items::where('Order_id' , $order->id)->get();
+            $i++;
+        };
+        foreach ($Items as $Item){
+            $i=0;
+            foreach ($Item as $ite){
+            $temp = Product::where('id' , $ite['Product_id'])->get();
+            $Item[$i]['Product_id'] =  $temp[0]['Name'];
+            $i++;
+        }
+        };
+
+      
+         return view('/MyOrder')->with('Order',$Order)->with('Items' , $Items);
+        }
+    
+    public function OrderDone(Request $request){
+        if(auth()->user()->admin == 1 && request()->ajax() ){ 
+            $ID =  $_POST['ID'];
+            $Order = Order::find($ID);
+            if( $Order != null ){
+            if($Order->Done == 0){
+            $Order->Done = 1;
+        }else {$Order->Done = 0; }
+        $Order->save();
+        return response()->json(['Operation Done Successfully']);
+    }else return redirect('/');
+    }}
+
+
+    public function DeleteOrder()
+    {    
+        $Order = Order::where('User_id' , auth()->user()->id)->orderBy('id', 'DESC')->first();
+        $item = Items::where('Order_id' , $Order->id)->get();
+        $item->delete();
+        $Order->delete();
+        
+    }
+
     
 
     public function SubOrder()
@@ -154,7 +198,7 @@ class OrderController extends Controller
     /*
     public function charge(Request $request)
     {
-
+          $this->SubOrder();
         //dd($request->stripeToken);
         $charge = Stripe::charges()->create([
             'currency' => 'USD',
@@ -166,10 +210,9 @@ class OrderController extends Controller
         $chargeId = $charge['id'];
 
         if ($chargeId) {
-            // save order in orders table ...
-            
             return redirect()->route('store')->with('success', " Payment was done. Thanks");
         } else {
+            $this->DeleteOrder();
             return redirect()->back();
         }
     }

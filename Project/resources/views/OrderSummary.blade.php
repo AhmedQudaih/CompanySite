@@ -108,7 +108,7 @@
                         class="glyphicon glyphicon-minus"></span></button>
                   </span>
                   <input type="text" class="form-control text-center shadow" id="{{$CartItem['id']}}"
-                    value="{{$CartItem['Quantity']}}">
+                    value="{{$CartItem['Quantity']}}" disabled>
                   <span class="input-group-btn">
                     <button class="btn btn-outline-primary shadow" data-dir="up"><span
                         class="glyphicon glyphicon-plus"></span></button>
